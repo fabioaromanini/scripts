@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_VERSION="docker-ce_18.02.0~ce-0~ubuntu_amd64.deb"
+DOCKER_VERSION="docker-ce_18.02.0~ce-0~ubuntu_amd64"
 DOCKER_MNT="/mnt/docker"
 DOCKER_RELEASE_TYPE="edge"
 
@@ -36,6 +36,6 @@ fi
 
 # moves docker volumes to DOCKER_MNT, in order to preserve OS disk
 sudo systemctl stop docker
-sudo mv /var/lib/docker/volumes $DOCKER_MNT
+sudo mv /var/lib/docker/volumes $DOCKER_MNT/
 sudo ln -s $DOCKER_MNT/volumes /var/lib/docker/volumes
 sudo systemctl start docker

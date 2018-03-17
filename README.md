@@ -4,4 +4,4 @@
 * Checks if the disk that contains docker's volume directory is mounted
 
 #0.9.1
-* Enables user to choose between stable o edge release
+* Enables user to choose between stable or edge release
