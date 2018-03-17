@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_VERSION="docker-ce_17.12.1~ce-0~ubuntu_amd64"
+DOCKER_VERSION="docker-ce_18.02.0~ce-0~ubuntu_amd64.deb"
 DOCKER_MNT="/mnt/docker"
 DOCKER_RELEASE_TYPE="edge"
 
@@ -26,7 +26,7 @@ fi
 # Checks if docker is installed, and use it's output to decide if should install or not
 DOCKER_INSTALLED=$(sudo dpkg-query -l | grep "docker" | wc -l)
 
-# if [ $DOCKER_INSTALLED -eq 0 ]; then
+if [ $DOCKER_INSTALLED -eq 0 ]; then
 	echo "Docker package is not installed yet. Installing Docker package..."
 	sudo apt-get update
 	sudo dpkg -i "$DOCKER_PATH"
