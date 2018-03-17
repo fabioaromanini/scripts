@@ -2,6 +2,7 @@
 
 DOCKER_VERSION="docker-ce_17.12.1~ce-0~ubuntu_amd64"
 DOCKER_MNT="/mnt/docker"
+DOCKER_RELEASE_TYPE="edge"
 
 DOWNLOADS_DIR="$HOME/Downloads/workspace/"
 FILE_NAME="$DOCKER_VERSION.deb"
@@ -17,7 +18,7 @@ fi
 
 if [ ! -f $DOCKER_PATH ]; then
     echo "Docker pkg not found!"
-	wget -P $DOWNLOADS_DIR https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/$FILE_NAME
+	wget -P $DOWNLOADS_DIR https://download.docker.com/linux/ubuntu/dists/xenial/pool/$DOCKER_RELEASE_TYPE/amd64/$FILE_NAME
 else
     echo "Docker pkg found!"
 fi
