@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# TODO:
+# move images dir to separated disk
+# add user to docker group
+# install docker-machine
+# install docker-compose
+# auto complete
+
 DOCKER_VERSION="docker-ce_18.02.0~ce-0~ubuntu_amd64"
 DOCKER_MNT="/mnt/docker"
 DOCKER_RELEASE_TYPE="edge"
@@ -23,7 +30,6 @@ else
     echo "Docker pkg found!"
 fi
 
-# Checks if docker is installed, and use it's output to decide if should install or not
 DOCKER_INSTALLED=$(sudo dpkg-query -l | grep "docker" | wc -l)
 
 if [ $DOCKER_INSTALLED -eq 0 ]; then
@@ -34,7 +40,7 @@ else
 	echo "Docker package is already installed"
 fi
 
-# moves docker volumes to DOCKER_MNT, in order to preserve OS disk
+# moves docker volumes to DOCKER_MNT, in order to preserve space in OS disk
 sudo systemctl stop docker
 sudo mv /var/lib/docker/volumes $DOCKER_MNT/
 sudo ln -s $DOCKER_MNT/volumes /var/lib/docker/volumes
