@@ -12,6 +12,9 @@
 * Store docker's images in a specific director, also using symbolic links
 * Adds autocomplete for docker's commands.
 
+# 0.9.3
+* Adds script to generate ssh-key
+
 .
 .
 .
