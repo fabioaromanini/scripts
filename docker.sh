@@ -52,6 +52,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 # autocomplete
 sudo curl -L https://raw.githubusercontent.com/docker/compose/1.20.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 
+sleep 2
 # moves docker's volumes and images to DOCKER_MNT, in order to preserve space in OS disk
 sudo systemctl stop docker
 
@@ -61,6 +62,7 @@ sudo mv /var/lib/docker/volumes $DOCKER_MNT/docker-config/
 sudo ln -s $DOCKER_MNT/docker-config/volumes /var/lib/docker/volumes
 
 sudo mv /var/lib/docker/image $DOCKER_MNT/docker-config/
-sudo ln -s $DOCKER_MNT/docker-config/images /var/lib/docker/image
+sudo ln -s $DOCKER_MNT/docker-config/image /var/lib/docker/image
 
+sleep 2
 sudo systemctl start docker
