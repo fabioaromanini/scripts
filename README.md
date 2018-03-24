@@ -13,7 +13,7 @@
 * Adds autocomplete for docker's commands.
 
 # 0.9.3
-* Adds script to genereate ssh-key
+* Adds script to generate ssh-key
 
 .
 .

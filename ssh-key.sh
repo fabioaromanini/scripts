@@ -1,6 +1,6 @@
 XCLIP_IS_INSTALLED=$(which xclip | wc -l)
 
-if [ $XCLIP_IS_INSTALLED -eq 1 ]; then
+if [ $XCLIP_IS_INSTALLED -eq 0 ]; then
 	sudo apt-get update
 	sudo apt-get install xclip
 fi
