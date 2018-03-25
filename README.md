@@ -20,10 +20,11 @@ Bash scripts to execute repetitive tasks I must perform every time I mess up my 
 * Adds script to generate ssh-key
 * Allows ssh via https ports to github.com servers
 
-## Coming soon
-
 ### 0.9.4
 * Adds script that sets nvm
+* List instructions on how to set edge and lts releases for node and npm
+
+## Coming soon
 
 ### 0.9.5
 * Adds script to mount disks on startup
