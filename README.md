@@ -23,7 +23,10 @@ Bash scripts to execute repetitive tasks I must perform every time I mess up my 
 ## Coming soon
 
 ### 0.9.4
+* Adds script that sets nvm
+
+### 0.9.5
 * Adds script to mount disks on startup
 
-### 0.9.4
+### 0.9.6
 * Log formatting
