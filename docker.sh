@@ -3,7 +3,7 @@
 # TODO:
 
 
-DOCKER_VERSION="docker-ce_18.03.0~ce-0~ubuntu_amd64"
+DOCKER_VERSION="docker-ce_18.05.0~ce~3-0~ubuntu_amd64"
 DOCKER_RELEASE_TYPE="edge"
 DOCKER_MACHINE_VERSION="v0.14.0"
 DOCKER_MNT="/mnt/docker"
@@ -53,10 +53,13 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo curl -L https://raw.githubusercontent.com/docker/compose/1.20.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 
 sleep 2
-# moves docker's volumes and images to DOCKER_MNT, in order to preserve space in OS disk
 sudo systemctl stop docker
 
-mkdir $DOCKER_MNT/docker-config
+echo "erasing previous docker_config dir..."
+sudo rm -rf $DOCKER_MNT/docker-config
+
+# moves docker's volumes and images to DOCKER_MNT, in order to preserve space in OS disk
+sudo mkdir $DOCKER_MNT/docker-config
 
 sudo mv /var/lib/docker/volumes $DOCKER_MNT/docker-config/
 sudo ln -s $DOCKER_MNT/docker-config/volumes /var/lib/docker/volumes
@@ -64,5 +67,5 @@ sudo ln -s $DOCKER_MNT/docker-config/volumes /var/lib/docker/volumes
 sudo mv /var/lib/docker/image $DOCKER_MNT/docker-config/
 sudo ln -s $DOCKER_MNT/docker-config/image /var/lib/docker/image
 
-sleep 2
+sleep 5
 sudo systemctl start docker

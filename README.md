@@ -24,10 +24,13 @@ Bash scripts to execute repetitive tasks I must perform every time I mess up my 
 * Adds script that sets nvm
 * List instructions on how to set edge and lts releases for node and npm
 
+### 0.9.5
+* Removes previous docker-config dir before installing
+
 ## Coming soon
 
-### 0.9.5
+### 0.9.6
 * Adds script to mount disks on startup
 
-### 0.9.6
+### 0.9.7
 * Log formatting
