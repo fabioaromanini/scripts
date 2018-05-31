@@ -26,6 +26,7 @@ Bash scripts to execute repetitive tasks I must perform every time I mess up my 
 
 ### 0.9.5
 * Removes previous docker-config dir before installing
+* 0.9.5.1: moves /var/lib/docker to /mnt/docker/var, and creates sym links
 
 ## Coming soon
 

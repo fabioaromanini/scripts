@@ -58,14 +58,12 @@ sudo systemctl stop docker
 echo "erasing previous docker_config dir..."
 sudo rm -rf $DOCKER_MNT/docker-config
 
-# moves docker's volumes and images to DOCKER_MNT, in order to preserve space in OS disk
-sudo mkdir $DOCKER_MNT/docker-config
+# moves dockerfiles to DOCKER_MNT, in order to preserve space in OS disk
+sudo mkdir -p $DOCKER_MNT/docker-config/var/
 
-sudo mv /var/lib/docker/volumes $DOCKER_MNT/docker-config/
-sudo ln -s $DOCKER_MNT/docker-config/volumes /var/lib/docker/volumes
-
-sudo mv /var/lib/docker/image $DOCKER_MNT/docker-config/
-sudo ln -s $DOCKER_MNT/docker-config/image /var/lib/docker/image
+sudo mv /var/lib/docker/* $DOCKER_MNT/docker-config/var/
+sudo rm -rf /var/lib/docker
+sudo ln -s $DOCKER_MNT/docker-config/var /var/lib/docker
 
 sleep 5
 sudo systemctl start docker
