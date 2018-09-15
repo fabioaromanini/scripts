@@ -3,7 +3,7 @@
 # TODO:
 
 
-DOCKER_VERSION="docker-ce_18.05.0~ce~3-0~ubuntu_amd64"
+DOCKER_VERSION="docker-ce_18.06.1~ce~3-0~ubuntu_amd64.deb"
 DOCKER_RELEASE_TYPE="edge"
 DOCKER_MACHINE_VERSION="v0.14.0"
 DOCKER_MNT="/mnt/docker"
