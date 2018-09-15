@@ -55,15 +55,17 @@ sudo curl -L https://raw.githubusercontent.com/docker/compose/1.20.1/contrib/com
 sleep 2
 sudo systemctl stop docker
 
-echo "erasing previous docker_config dir..."
-sudo rm -rf $DOCKER_MNT/docker-config
+if [ -f $DOCKER_MNT/docker-config ]; then
+	echo "erasing previous docker_config dir..."
+	sudo rm -rf $DOCKER_MNT/docker-config
+fi
 
 # moves dockerfiles to DOCKER_MNT, in order to preserve space in OS disk
 sudo mkdir -p $DOCKER_MNT/docker-config/var/
 
-sudo mv /var/lib/docker/* $DOCKER_MNT/docker-config/var/
-sudo rm -rf /var/lib/docker
-sudo ln -s $DOCKER_MNT/docker-config/var /var/lib/docker
+sudo mv /var/lib/docker $DOCKER_MNT/docker-config/var/ && \
+	sudo rm -rf /var/lib/docker && \
+	sudo ln -s $DOCKER_MNT/docker-config/var/docker /var/lib/docker
 
 sleep 5
 sudo systemctl start docker
